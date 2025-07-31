@@ -14,7 +14,6 @@ import com.jgtche.mybooks.R
 import com.jgtche.mybooks.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.hide()
+        supportActionBar?.show()
 
         // edge-to-edge support
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
