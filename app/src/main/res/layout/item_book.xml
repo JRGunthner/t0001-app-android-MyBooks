@@ -41,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textview_title" />
 
     <ImageView
+        android:contentDescription="Item favorito"
         android:id="@+id/imageview_favorite"
         android:layout_width="24dp"
         android:layout_height="24dp"

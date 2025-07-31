@@ -1,6 +1,5 @@
 package com.jgtche.mybooks.ui.viewholder
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.jgtche.mybooks.R
 import com.jgtche.mybooks.databinding.ItemBookBinding
@@ -25,9 +24,11 @@ class BookViewHolder(private val item: ItemBookBinding, private val listener: Bo
             "Terror" -> {
                 item.textviewGenre.setBackgroundResource(R.drawable.rounded_label_red)
             }
+
             "Fantasia" -> {
                 item.textviewGenre.setBackgroundResource(R.drawable.rounded_label_fantasy)
             }
+
             else -> {
                 item.textviewGenre.setBackgroundResource(R.drawable.rounded_label_teal)
             }
