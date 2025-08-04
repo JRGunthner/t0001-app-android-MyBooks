@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import com.jgtche.mybooks.entity.BookEntity
 import com.jgtche.mybooks.helper.DatabaseConstants
 
+/*
 class BookDatabaseHelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase) {
@@ -76,3 +77,5 @@ class BookDatabaseHelper(context: Context) :
         )
     }
 }
+*/
+
