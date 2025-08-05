@@ -6,24 +6,25 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 import com.jgtche.mybooks.entity.BookEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BookDAO {
     @Query("SELECT * FROM Book")
-    fun getAllBooks(): List<BookEntity>
+    fun getAllBooks(): Flow<List<BookEntity>>
 
     @Query("SELECT * FROM Book WHERE favorite = 1")
-    fun getFavoriteBooks(): List<BookEntity>
+    fun getFavoriteBooks(): Flow<List<BookEntity>>
 
     @Query("SELECT * FROM Book WHERE id = :id")
-    fun getBookById(id: Int): BookEntity
+    suspend fun getBookById(id: Int): BookEntity
 
     @Update
-    fun update(book: BookEntity)
+    suspend fun update(book: BookEntity)
 
     @Delete
-    fun delete(book: BookEntity): Int
+    suspend fun delete(book: BookEntity): Int
 
     @Insert
-    fun insert(book: List<BookEntity>)
+    suspend fun insert(book: List<BookEntity>)
 }

@@ -3,21 +3,20 @@ package com.jgtche.mybooks.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.jgtche.mybooks.entity.BookEntity
 import com.jgtche.mybooks.repository.BookRepository
+import kotlinx.coroutines.launch
 
 class FavoriteViewModel(application: Application) : AndroidViewModel(application) {
-    private val _books = MutableLiveData<List<BookEntity>>()
-    val books: LiveData<List<BookEntity>> = _books
-
     private val repository = BookRepository.getInstance(application.applicationContext)
 
-    fun getFavoriteBooks() {
-        _books.value = repository.getFavoriteBooks()
-    }
+    val books: LiveData<List<BookEntity>> = repository.getFavoriteBooks().asLiveData()
 
     fun favorite(id: Int) {
-        repository.toggleFavoriteStatus(id)
+        viewModelScope.launch {
+            repository.toggleFavoriteStatus(id)
+        }
     }
 }
